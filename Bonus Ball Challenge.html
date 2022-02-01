@@ -1,0 +1,72 @@
+<html> 
+    <h1> 
+    <head> Bonus Ball Challenge</head>
+</h1>
+
+
+<div id="ball" style=" z-index: 5;
+position:absolute;
+left: 0px;
+top: 400px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+background: yellowgreen;
+"></div>
+
+
+<body>
+<script>
+
+
+
+var ball= document.getElementById("ball");
+var velocityx= 100;
+var velocityy= 50;
+var positionX=0;
+var positiony=0;
+
+
+function moveBall() {
+    positionX=positionX+velocityx;
+    ball.style.left= positionX + "px";
+    positiony=positiony+velocityy;
+    ball.style.top= positiony + "px";
+
+
+
+
+    if(positionX>=500){
+        velocityx= -velocityx/3;
+        ball.style.background="red";
+        ball.style.width= 20 + "px";
+    }
+
+    if(positionX<=10){
+        velocityx= -velocityx*3;
+        ball.style.background="green";
+        ball.style.width= 100 + "px";
+    }
+    if(positiony>=500){
+        velocityy= -velocityy*2;
+        ball.style.background="blue";
+        ball.style.top= 20 + "px";
+    }
+    if(positiony<=10){
+        velocityy= -velocityy/2;
+        ball.style.background="yellow";
+        ball.style.top= 100 + "px";
+    }
+
+
+}
+
+
+setInterval(moveBall, 100);
+
+
+
+</script>
+</body>
+
+</html>
